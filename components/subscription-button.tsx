@@ -5,6 +5,7 @@ import axios from "axios";
 
 import { Button } from "@/components/ui/button";
 import { Zap } from "lucide-react";
+import toast from "react-hot-toast";
 
 interface SubscriptionButtonProps {
   isPro: boolean;
@@ -20,7 +21,7 @@ const SubscriptionButton = ({ isPro = false }: SubscriptionButtonProps) => {
 
       window.location.href = response.data.url;
     } catch (error: any) {
-      console.log("[BILLING_ERROR]", error);
+      toast.error("Something went wrong");
     } finally {
       setLoading(false);
     }
